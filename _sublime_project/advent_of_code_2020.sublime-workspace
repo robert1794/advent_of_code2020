@@ -1,0 +1,448 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"answer",
+				"answers_for_everyone\tabc"
+			],
+			[
+				"ans",
+				"answer_char\tabc"
+			],
+			[
+				"nr",
+				"nr_of_duplicates\tabc"
+			],
+			[
+				"filter",
+				"filter_unique_characters\tabc"
+			],
+			[
+				"inpu",
+				"input_entries\tabc"
+			],
+			[
+				"part",
+				"part_str\tabc"
+			],
+			[
+				"input",
+				"input_blob\tabc"
+			],
+			[
+				"seat",
+				"seat_list\tstatement"
+			],
+			[
+				"trees",
+				"trees_bumped\tabc"
+			],
+			[
+				"traj",
+				"trajectories_to_check\tabc"
+			],
+			[
+				"segment",
+				"segment_x\tabc"
+			],
+			[
+				"map",
+				"map_segment\tabc"
+			],
+			[
+				"c_",
+				"c_first\tabc"
+			],
+			[
+				"char",
+				"char_count\tabc"
+			],
+			[
+				"c_m",
+				"c_max\tabc"
+			],
+			[
+				"re",
+				"readlines\tfunction"
+			],
+			[
+				"byt",
+				"byte_field\tabc"
+			],
+			[
+				"outpu",
+				"output_file\tabc"
+			],
+			[
+				"writ",
+				"write\tfunction"
+			],
+			[
+				"out",
+				"output_file\tabc"
+			],
+			[
+				"dir",
+				"directory\tabc"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/rober/source_code/advent_of_code2020/day_06_Custom_Customs/day_06_Custom_Customs_part2.py",
+			"settings":
+			{
+				"buffer_size": 1549,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import io\nfrom typing import Iterator\n\nimport dotenv\nimport requests\n\n\ndef read_input(year: int, day: int) -> Iterator[str]:\n    \"\"\"Read input from stdin or a file, line by line, into an iterator of strings.\"\"\"\n    return (line.strip() for line in get_input_from_aoc(year, day))\n\n\ndef read_input_into_ints(year: int, day: int) -> Iterator[int]:\n    \"\"\"Read input from stdin or a file, line by line, into an iterator of integers.\"\"\"\n    return (int(line) for line in read_input(year, day))\n\n\ndef read_input_into_floats(year: int, day: int) -> Iterator[float]:\n    \"\"\"Read input from stdin or a file, line by line, into an iterator of floats.\"\"\"\n    return (float(line) for line in read_input(year, day))\n\n\ndef read_full_text(year: int, day: int) -> str:\n    return get_input_from_aoc(year, day).read()\n\n\ndef get_input_from_aoc(year: int, day: int) -> io.StringIO:\n    session_id = dotenv.get_key(\".env\", \"SESSION_ID\")\n    response = requests.get(\n        f\"https://adventofcode.com/{year}/day/{day}/input\",\n        cookies={\"session\": session_id},\n    )\n    return io.StringIO(response.text, newline=\"\\n\")\n",
+			"file": "/C/Users/rober/source_code/advent_of_code2020/day_06_Custom_Customs/aoc_input.py",
+			"file_size": 1138,
+			"file_write_time": 132522726014075573,
+			"settings":
+			{
+				"buffer_size": 1105,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "#!/usr/bin/env python\n\nfrom aoc_input import read_full_text\n\n\ndef main():\n    print(sum(len(get_common_answers(group)) for group in get_passenger_groups()))\n\n\ndef get_common_answers(passenger_group):\n    passenger_group = (set(passenger) for passenger in passenger_group)\n    first_passenger = next(passenger_group)\n    return first_passenger.intersection(*passenger_group)\n\n\ndef get_passenger_groups():\n    return (\n        group.strip().split(\"\\n\") for group in read_full_text(2020, 6).split(\"\\n\\n\")\n    )\n\n\nif __name__ == \"__main__\":\n    main()\n",
+			"file": "/C/Users/rober/source_code/advent_of_code2020/day_06_Custom_Customs/answer1.py",
+			"file_size": 571,
+			"file_write_time": 132522726245571724,
+			"settings":
+			{
+				"buffer_size": 548,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"intall ",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"package \t",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/rober/source_code/advent_of_code2020",
+		"/C/Users/rober/source_code/advent_of_code2020/day_04_Passport_Processing",
+		"/C/Users/rober/source_code/advent_of_code2020/day_05_Binary_Boarding",
+		"/C/Users/rober/source_code/advent_of_code2020/day_06_Custom_Customs"
+	],
+	"file_history":
+	[
+		"/C/Users/rober/source_code/advent_of_code2020/day_05_Binary_Boarding/day_05_Binary_Boarding_part2.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_05_Binary_Boarding/day_05_Binary_Boarding.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_05_Binary_Boarding/template.py",
+		"/C/Users/rober/source_code/advent_of_code2020/template.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_3_Toboggan_Trajectory/day_3_Toboggan_Trajectory_part2.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_2_Password Philosophy/day_2_Password Philosophy_part2.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_3_Toboggan_Trajectory/day_3_Toboggan_Trajectory_part1.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_3_Toboggan_Trajectory/day_3_Toboggan_Trajectory.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_2_Password Philosophy/day_2_Password Philosophy.py",
+		"/C/Users/rober/source_code/advent_of_code2020/day_1_report_repair/day_1_report_repair_part2.py",
+		"/C/Users/rober/Documents/_Local source code/USB decoder saleae/Packet setup processor/packet setup processor.py",
+		"/C/Users/rober/source_code/advent_of_code2020/1/day_1_report_repair.py",
+		"/C/Users/rober/Documents/_Local source code/USB decoder saleae/USB decoder/saleae logic USB analyzer_v3.py",
+		"/C/Users/rober/Documents/_Local source code/USB decoder saleae/Packet setup processor/packet setup preocessor.sublime-project",
+		"/C/Users/rober/Downloads/saleae usb/saleae logic USB analyzer.py",
+		"/C/Users/rober/source_code/programmeren_in_python_techacademy/Les5/Les 5 - Opdracht 2.py",
+		"/C/Users/rober/source_code/programmeren_in_python_techacademy/Les5/lest 5 opdracht 1.py",
+		"/C/Users/rober/source_code/albion_strategizer/main.py",
+		"/C/Users/Robert/AppData/Roaming/Sublime Text 3/Packages/User/New_python.sublime-build"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/rober/source_code/advent_of_code2020/day_06_Custom_Customs/day_06_Custom_Customs_part2.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								884,
+								884
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/rober/source_code/advent_of_code2020/day_06_Custom_Customs/aoc_input.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								808,
+								808
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/rober/source_code/advent_of_code2020/day_06_Custom_Customs/answer1.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 548,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								507,
+								507
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 597.0
+	},
+	"output.exec":
+	{
+		"height": 236.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "advent_of_code_2020.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 365.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
